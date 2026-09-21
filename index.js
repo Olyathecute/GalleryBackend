@@ -1,10 +1,14 @@
 const express = require('express')
 const dotenv = require('dotenv')
+const cors = require('cors')
 
 dotenv.config()
 
 const app = express()
-const PORT = 8080
+
+app.use(cors())
+
+const PORT = process.env.PORT || 8080
 
 app.get('/photos', async (req, res) => {
   const response = await fetch(
